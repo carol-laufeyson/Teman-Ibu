@@ -245,6 +245,29 @@ footer .social-icons a:hover {
   transform: scale(1.2); 
   }
 
+@media (max-width: 768px) {
+  .navbar-custom {
+    flex-wrap: nowrap;        /* JANGAN TURUN KE BAWAH */
+    overflow-x: auto;         /* BISA SCROLL KE SAMPING */
+    justify-content: flex-start;
+    padding: 10px;
+  }
+
+  .navbar-custom a {
+    margin: 0 15px;
+    flex: 0 0 auto;
+  }
+
+  .navbar-custom img {
+    width: 120px;             /* diperkecil agar muat HP */
+    height: auto;
+  }
+
+  /* Hilangkan scrollbar jelek */
+  .navbar-custom::-webkit-scrollbar {
+    display: none;
+  }
+	
 </style>
 </head>
 
@@ -405,3 +428,4 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
+
