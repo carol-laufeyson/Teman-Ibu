@@ -142,20 +142,28 @@ footer .social-icons a:hover {
 }
 
 @media (max-width: 768px) {
-
   .navbar-custom {
-    flex-direction: column;       /* jadi vertikal */
-    padding: 10px 0;
+    flex-wrap: nowrap;        /* JANGAN TURUN KE BAWAH */
+    overflow-x: auto;         /* BISA SCROLL KE SAMPING */
+    justify-content: flex-start;
+    padding: 10px;
   }
 
   .navbar-custom a {
-    margin: 10px 0;               /* jarak antar menu */
+    margin: 0 15px;
+    flex: 0 0 auto;
   }
 
   .navbar-custom img {
-    width: 130px;                 /* mengecilkan ukuran */
+    width: 120px;             /* diperkecil agar muat HP */
     height: auto;
   }
+
+  /* Hilangkan scrollbar jelek */
+  .navbar-custom::-webkit-scrollbar {
+    display: none;
+  }
+
 }
 
 </style>
@@ -251,3 +259,4 @@ window.addEventListener('load', handleScroll);
 </script>
 </body>
 </html>
+
