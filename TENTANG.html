@@ -3,10 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tentang Teman Ibu</title>
+<title>Teman Ibu</title>
 
-<!-- Font -->
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
@@ -19,7 +17,6 @@ body {
 }
 
 /* HEADER */
-
 .header {
   background-color: #FFDAEA; /* Warna dasar tetap */
   background-image: url('BG2.svg'); /* Tambah background hiasan */
@@ -32,10 +29,11 @@ body {
   transform: none !important;
   transition: none !important;
   position: relative;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* bayangan */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sedikit bayangan lembut */
 }
 
 .header::before {
+  /* Lapisan lembut agar warna dasar tetap kelihatan */
   content: "";
   position: absolute;
   inset: 0;
@@ -81,110 +79,39 @@ body {
   filter: brightness(1.1);
 }
 
-/* SECTION: TENTANG */
-.section-tentang {
-  text-align: center;
-  padding: 60px 20px;
+/* CAROUSEL */
+.carousel-inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.section-tentang img {
-  width: 160px;
-  height: 160px;
-  object-fit: contain;
-  margin-bottom: 20px;
-}
 
-.section-tentang h2 {
-  color: #C85A54;
-  font-weight: 700;
-  font-size: 2em;
-}
-
-.section-tentang p {
-  max-width: 800px;
-  margin: 0 auto 50px auto;
-  font-size: 18px;
-  line-height: 1.7;
-  color: #5D554F;
-}
-
-/*VISI MISI */
-.visi-misi {
-  background-image: url('BG1.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  position: relative;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.visi-misi::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(2px);
-  z-index: 0;
-}
-
-.visi-misi .content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-}
-
-.visi, .misi {
-  background-color: #FFF8F2;
-  border-radius: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 35px;
-  width: 320px;
-  text-align: left;
-  transition: transform 0.3s ease;
-}
-
-.visi:hover, .misi:hover {
-  transform: scale(1.03);
-}
-
-.visi h3, .misi h3 {
-  color: #C85A54;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 15px;
-  font-size: 1.5em;
-}
-
-.visi p, .misi p {
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-/* ILLUSTRATION */
-.section-image {
-  text-align: center;
-  margin: 70px 0 90px 0;
-}
-
-.section-image img {
-  max-width: 60%;
+.carousel-inner img {
+  width: 100%;
   height: auto;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  object-fit: contain;
+  background-color: #FFF2E1;
+}
+
+.carousel-item {
+  background-color: #FFF2E1;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
 }
 
 /* FOOTER */
 footer {
   background: #FFEACF;
-  padding: 40px 0;
+  padding: 20px 0;
   text-align: center;
   position: relative;
-  z-index: 10;
+  margin-top: 70px;
 }
 
 footer img {
@@ -201,7 +128,7 @@ footer .social-icons a:hover {
   transform: scale(1.2);
 }
 
-/* FADE-IN ANIMATION */
+/* FADE IN  ANIMATION */
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
@@ -213,65 +140,70 @@ footer .social-icons a:hover {
   opacity: 1;
   transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+
+  .navbar-custom {
+    flex-direction: column;       /* jadi vertikal */
+    padding: 10px 0;
+  }
+
+  .navbar-custom a {
+    margin: 10px 0;               /* jarak antar menu */
+  }
+
+  .navbar-custom img {
+    width: 130px;                 /* mengecilkan ukuran */
+    height: auto;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- Header -->
+<!-- HEADER -->
 <div class="header">
   <a href="index.html">
     <img src="LOGO HEADER.svg" alt="Logo Header" width="78" height="78">
   </a>
 </div>
 
-<!-- Navbar -->
+<!-- NAVBAR -->
 <nav class="navbar-custom">
-  <a href="TENTANG.html"><img src="Tentang Teman Ibu - ON.svg" alt=""></a>
+  <a href="TENTANG.html"><img src="Tentang Teman Ibu - OFF.svg" data-hover="Tentang Teman Ibu - ON.svg" alt=""></a>
   <a href="HEMAT YUK!.html"><img src="Hemat Yuk! - OFF.svg" data-hover="Hemat Yuk! - ON.svg" alt=""></a>
   <a href="ATUR UANGKU.html"><img src="Atur Uangku - OFF.svg" data-hover="Atur Uangku - ON.svg" alt=""></a>
   <a href="RUANG KELUARGA.html"><img src="Ruang Keluarga - OFF.svg" data-hover="Ruang Keluarga - ON.svg" alt=""></a>
   <a href="DAPUR IBU.html"><img src="Dapur Ibu - OFF.svg" data-hover="Dapur Ibu - ON.svg" alt=""></a>
 </nav>
 
-<!-- Section: Tentang -->
-<section class="section-tentang fade-in">
-  <img src="LOGO HEADER.svg" alt="Logo Teman Ibu">
-  <h2>Tentang Teman Ibu</h2>
-  <p>
-    Logo <strong>Teman Ibu</strong> menggambarkan kehangatan, dukungan, dan semangat berbagi antar ibu.
-    Huruf <em>“t”</em> dan <em>“i”</em> saling terhubung membentuk simbol kasih dan kebersamaan,
-    dengan warna lembut yang mencerminkan empati, cinta, serta energi positif.
-    Logo ini menjadi representasi semangat Teman Ibu untuk menjadi ruang aman dan inspiratif bagi semua ibu.
-  </p>
-</section>
-
-<!-- Visi Misi -->
-<section class="visi-misi fade-in">
-  <div class="content">
-    <div class="visi fade-in">
-      <h3>Visi</h3>
-      <p>
-        Menjadi platform terpercaya yang mendukung ibu Indonesia dalam mengelola keluarga, keuangan, dan kesejahteraan dengan penuh cinta dan kesadaran.
-      </p>
-    </div>
-    <div class="misi fade-in">
-      <h3>Misi</h3>
-      <p>
-        - Memberikan edukasi dan informasi yang relevan bagi para ibu. <br>
-        - Membangun komunitas berbagi pengalaman positif. <br>
-        - Menginspirasi ibu untuk hidup hemat, bahagia, dan seimbang.
-      </p>
-    </div>
+<!-- CAROUSEL -->
+<div id="carouselExampleIndicators1" class="carousel slide fade-in" data-ride="carousel" data-interval="3000">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators1" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators1" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active"><img class="d-block w-100" src="images/1.svg" alt="Slide 1"></div>
+    <div class="carousel-item"><img class="d-block w-100" src="images/2.svg" alt="Slide 2"></div>
+    <div class="carousel-item"><img class="d-block w-100" src="images/3.svg" alt="Slide 3"></div>
+    <div class="carousel-item"><img class="d-block w-100" src="images/4.svg" alt="Slide 4"></div>
+    <div class="carousel-item"><img class="d-block w-100" src="images/5.svg" alt="Slide 5"></div>
   </div>
-</section>
-
-<!-- Illustration -->
-<div class="section-image fade-in">
-  <img src="ibuanak.jpg" alt="Ilustrasi Ibu dan Anak">
+  <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
 </div>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer class="mt-5">
   <img src="Footer.svg" alt="Footer" usemap="#Map">
   <map name="Map">
@@ -280,44 +212,42 @@ footer .social-icons a:hover {
     <area shape="rect" coords="846,155,907,211" href="https://x.com" target="_blank" alt="-">
     <area shape="rect" coords="1048,152,1116,210" href="https://facebook.com" target="_blank" alt="-">
   </map>
-	
+
   <div class="social-icons mt-3">
     <a href="https://www.instagram.com/" target="_blank"><img src="instagram.png" alt="Instagram" width="40"></a>
     <a href="https://www.youtube.com/" target="_blank"><img src="youtube.png" alt="YouTube" width="40"></a>
     <a href="https://x.com/" target="_blank"><img src="twitter.png" alt="Twitter" width="40"></a>
-    <a href="https://web.facebook.com/" target="_blank"><img src="facebook.png" alt="Facebook" width="40"></a>
+    <a href="https://facebook.com/" target="_blank"><img src="facebook.png" alt="Facebook" width="40"></a>
   </div>
 </footer>
 
-<!-- Scripts -->
+<!-- SCRIPT -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <script>
-// Hover Swap Navbar Images
+// Hover Image Change
 document.querySelectorAll('.navbar-custom img').forEach(img => {
-  const hover = img.getAttribute('data-hover');
-  if (!hover) return;
   const original = img.src;
-  img.addEventListener('mouseenter', () => img.src = hover);
-  img.addEventListener('mouseleave', () => img.src = original);
+  const hover = img.getAttribute('data-hover');
+  if (hover) {
+    img.addEventListener('mouseenter', () => img.src = hover);
+    img.addEventListener('mouseleave', () => img.src = original);
+  }
 });
 
-// Fade-in on Scroll
-const fadeElements = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -40px 0px" };
-
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('visible');
-    observer.unobserve(entry.target);
+// Fade-in effect on scroll 
+function handleScroll() {
+  document.querySelectorAll('.fade-in').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('visible');
+    }
   });
-}, appearOptions);
-
-fadeElements.forEach(el => appearOnScroll.observe(el));
+}
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('load', handleScroll);
 </script>
 </body>
 </html>
-
