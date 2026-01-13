@@ -258,6 +258,34 @@ footer .social-icons a:hover {
   }
 }
 
+	@media (max-width: 768px) {
+
+  /* MATIKAN FIXED HEIGHT DI MOBILE */
+  .tip-inner {
+    height: auto !important;
+  }
+
+  /* BIAR CARD IKUT TINGGI ISI */
+  .tip-front,
+  .tip-back {
+    position: relative !important;
+    height: auto !important;
+  }
+
+  /* HILANGKAN CENTER VERTICAL YANG MEMOTONG TEKS */
+  .tip-front h4 {
+    top: 0 !important;
+    transform: none !important;
+    padding: 30px 10px;
+  }
+
+  /* TAMBAHAN KEAMANAN */
+  .tip {
+    perspective: none;
+  }
+}
+
+	
 </style>
 </head>
 
@@ -476,6 +504,7 @@ window.addEventListener('load', handleScroll);
 </body>
 
 </html>
+
 
 
 
