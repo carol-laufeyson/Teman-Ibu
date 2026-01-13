@@ -285,6 +285,42 @@ footer .social-icons a:hover {
   }
 }
 
+@media (max-width: 768px) {
+
+  /* JAGA TINGGI CARD TETAP SATU */
+  .tip {
+    height: auto;
+  }
+
+  .tip-inner {
+    height: 240px; /* KUNCI TINGGI → JARAK BALIK NORMAL */
+  }
+
+  /* FRONT & BACK TETAP ABSOLUTE (PENTING) */
+  .tip-front,
+  .tip-back {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* TAPI ISI BOLEH SCROLL */
+  .tip-back {
+    overflow-y: auto;
+  }
+
+  /* HILANGKAN CENTER VERTICAL YANG BIKIN LOMPAT */
+  .tip-front h4 {
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 10px;
+  }
+
+  /* HALUSKAN */
+  .tip-inner {
+    transition: transform 0.5s ease;
+  }
+}
+	
 	
 </style>
 </head>
@@ -456,54 +492,44 @@ footer .social-icons a:hover {
 </footer>
 
 <script>
-document.querySelectorAll('.navbar-custom img').forEach(img => {
-  const original = img.src;
-  const hover = img.getAttribute('data-hover');
-  if (hover) {
-    img.addEventListener('mouseenter', () => img.src = hover);
-    img.addEventListener('mouseleave', () => img.src = original);
-  }
-});
-
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
 let activeTip = null;
+
 document.querySelectorAll('.tip').forEach(tip => {
-  tip.addEventListener('mouseenter', () => {
-    if (activeTip && activeTip !== tip) activeTip.classList.remove('flipped');
-    tip.classList.add('flipped');
-  });
 
-  tip.addEventListener('mouseleave', () => {
-    if (tip !== activeTip) tip.classList.remove('flipped');
-  });
+  /* DESKTOP: HOVER */
+  if (!isMobile) {
+    tip.addEventListener('mouseenter', () => {
+      if (activeTip && activeTip !== tip) {
+        activeTip.classList.remove('flipped');
+      }
+      tip.classList.add('flipped');
+    });
 
+    tip.addEventListener('mouseleave', () => {
+      tip.classList.remove('flipped');
+    });
+  }
+
+  /* MOBILE + DESKTOP: CLICK */
   tip.addEventListener('click', () => {
     if (activeTip === tip) {
-      activeTip = null;
       tip.classList.remove('flipped');
+      activeTip = null;
     } else {
       if (activeTip) activeTip.classList.remove('flipped');
+      tip.classList.add('flipped');
       activeTip = tip;
     }
   });
 });
-
-
-// Fade-in scroll
-function handleScroll() {
-  document.querySelectorAll('.fade-in').forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
-    }
-  });
-}
-window.addEventListener('scroll', handleScroll);
-window.addEventListener('load', handleScroll);
 </script>
+
 
 </body>
 
 </html>
+
 
 
 
