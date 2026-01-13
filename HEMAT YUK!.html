@@ -258,69 +258,55 @@ footer .social-icons a:hover {
   }
 }
 
-	@media (max-width: 768px) {
+@media (max-width: 768px) {
 
-  /* MATIKAN FIXED HEIGHT DI MOBILE */
-  .tip-inner {
-    height: auto !important;
+  /* GRID */
+  .tips-grid {
+    grid-template-columns: 1fr;
   }
 
-  /* BIAR CARD IKUT TINGGI ISI */
-  .tip-front,
-  .tip-back {
-    position: relative !important;
-    height: auto !important;
-  }
-
-  /* HILANGKAN CENTER VERTICAL YANG MEMOTONG TEKS */
-  .tip-front h4 {
-    top: 0 !important;
-    transform: none !important;
-    padding: 30px 10px;
-  }
-
-  /* TAMBAHAN KEAMANAN */
+  /* CARD WRAPPER */
   .tip {
     perspective: none;
   }
-}
 
-@media (max-width: 768px) {
-
-  /* JAGA TINGGI CARD TETAP SATU */
-  .tip {
-    height: auto;
-  }
-
+  /* CARD BODY */
   .tip-inner {
-    height: 240px; /* KUNCI TINGGI → JARAK BALIK NORMAL */
+    height: auto;
+    transform: none !important;
   }
 
-  /* FRONT & BACK TETAP ABSOLUTE (PENTING) */
+  /* FRONT & BACK JADI SATU ALUR */
   .tip-front,
   .tip-back {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    height: auto;
+    backface-visibility: visible;
+    transform: none;
   }
 
-  /* TAPI ISI BOLEH SCROLL */
+  /* SEMBUNYIKAN BACK SECARA DEFAULT */
   .tip-back {
-    overflow-y: auto;
+    display: none;
   }
 
-  /* HILANGKAN CENTER VERTICAL YANG BIKIN LOMPAT */
+  /* SAAT DIKLIK */
+  .tip.flipped .tip-back {
+    display: block;
+  }
+
+  .tip.flipped .tip-front {
+    display: none;
+  }
+
   .tip-front h4 {
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0 10px;
-  }
-
-  /* HALUSKAN */
-  .tip-inner {
-    transition: transform 0.5s ease;
+    position: static;
+    transform: none;
+    padding: 30px 10px;
+    text-align: center;
   }
 }
-	
+
 	
 </style>
 </head>
@@ -532,6 +518,7 @@ document.querySelectorAll('.tip').forEach(tip => {
 </body>
 
 </html>
+
 
 
 
