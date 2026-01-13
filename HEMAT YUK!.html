@@ -492,26 +492,28 @@ footer .social-icons a:hover {
 </footer>
 
 <script>
+console.log("SCRIPT BARU AKTIF");
+
 const isMobile = window.matchMedia("(max-width: 768px)").matches;
 let activeTip = null;
 
 document.querySelectorAll('.tip').forEach(tip => {
 
-  /* DESKTOP: HOVER */
   if (!isMobile) {
     tip.addEventListener('mouseenter', () => {
       if (activeTip && activeTip !== tip) {
         activeTip.classList.remove('flipped');
       }
       tip.classList.add('flipped');
+      activeTip = tip;
     });
 
     tip.addEventListener('mouseleave', () => {
       tip.classList.remove('flipped');
+      activeTip = null;
     });
   }
 
-  /* MOBILE + DESKTOP: CLICK */
   tip.addEventListener('click', () => {
     if (activeTip === tip) {
       tip.classList.remove('flipped');
@@ -526,9 +528,11 @@ document.querySelectorAll('.tip').forEach(tip => {
 </script>
 
 
+
 </body>
 
 </html>
+
 
 
 
