@@ -207,10 +207,15 @@ footer .social-icons a:hover {
   transform: translateY(0);
 }
 
+/* =========================
+   MOBILE FIX — CARD ONLY
+   ========================= */
 @media (max-width: 768px) {
+
+  /* NAVBAR — DIPERTAHANKAN */
   .navbar-custom {
-    flex-wrap: nowrap;        /* JANGAN TURUN KE BAWAH */
-    overflow-x: auto;         /* BISA SCROLL KE SAMPING */
+    flex-wrap: nowrap;
+    overflow-x: auto;
     justify-content: flex-start;
     padding: 10px;
   }
@@ -221,14 +226,51 @@ footer .social-icons a:hover {
   }
 
   .navbar-custom img {
-    width: 120px;             /* diperkecil agar muat HP */
+    width: 120px;
     height: auto;
   }
 
-  /* Hilangkan scrollbar jelek */
   .navbar-custom::-webkit-scrollbar {
     display: none;
-  }	
+  }
+
+  /* ================= CARD ================= */
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .tip {
+    perspective: none;          /* MATIIN 3D DI MOBILE */
+  }
+
+  .tip-inner {
+    height: auto;               /* BIAR NGIKUT ISI */
+    transform: none !important; /* JANGAN FLIP */
+  }
+
+  .tip-front,
+  .tip-back {
+    position: relative;
+    height: auto;
+    transform: none;
+    backface-visibility: visible;
+  }
+
+  /* TAMPILKAN ISI BACK LANGSUNG */
+  .tip-back {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .tip-front h4 {
+    top: 0;
+    transform: none;
+    padding: 20px 10px;
+  }
+}
+	
 
 @media (max-width: 768px) {
   .card {
@@ -455,3 +497,4 @@ window.addEventListener('load', handleScroll);
 </body>
 
 </html>
+
