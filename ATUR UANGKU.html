@@ -226,6 +226,38 @@ footer .social-icons a:hover { transform: scale(1.2); }
     display: none;
   }
 
+/* =========================
+   FIX HASIL & CHART – HP ONLY
+   ========================= */
+@media (max-width: 768px) {
+
+  /* container lebih rapat */
+  .container {
+    padding: 18px 14px;
+  }
+
+  #hasilSection {
+    padding: 18px 14px;
+  }
+
+  /* teks tidak terlalu lebar */
+  #hasilText {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* CHART RESPONSIVE DI HP */
+  #chartContainer {
+    width: 100%;
+  }
+
+  #pieChart {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+    
 </style>
 </head>
 
@@ -436,4 +468,5 @@ function resetForm() {
 </script>
 </body>
 </html>
+
 
